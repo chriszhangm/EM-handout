@@ -50,6 +50,7 @@ emmulti = function(tol=1e-8){
 	return(list('iteration1'=iteration1,'iteration10'=iteration10,'iteration100'=iteration100))
 }
 process1  = emmulti()
+#plot the graph for simulation
 plot(1:100,process1$iteration1[1:100],type='b',pch=16,col='red',xlab='numbers of iterations',ylab='Estimated value',main='MCEM for Multinomial Case')
 points(1:100,process1$iteration10[1:100],type='b',pch=3,col='blue')
 points(1:100,process1$iteration100[1:100],type='b',pch=16,col='green')
@@ -126,7 +127,7 @@ sd1=sd2=sd(X)
 c(p, mu1, mu2, sd1, sd2)
 #0.5000000 -0.3903964  5.0651073  2.0738555  2.0738555
 EM_TwoMixtureNormal(p, mu1, mu2, sd1, sd2, X)
-
+#plot the simulation results
 process1 = EM_TwoMixtureNormal(p, mu1, mu2, sd1, sd2, X)
 plot(1:60,process1$mu11[1:60],type='b',lty=3,pch=16,col='red',ylim=c(0,5),xlab='Numbers of Iterations',ylab='Estimated Value',main='EM for  N(4,1) and N(0,1) with p = 0.3')
 points(1:60,process1$mu22[1:60],type='b',lty=3,pch=16,col='blue')
